@@ -1,5 +1,0 @@
-Karma file is used for testing, automated testing.
-
-things to learn or see
-1.that angular tutorial
-2.dependency injection
