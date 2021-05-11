@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Web page</title>
+</head>
+<body>
+    
+        Time : <span id="hours">0</span>:<span id="min">0</span>:<span id="seconds">0</span> <span id="am-pm">AM</span>
+    
+    <h1>The Pet shop</h1>
+    <h2>Jhonny pet shop</h2>
+    <h3>breeds of high quality</h3>
+    <p>Welcome to our pet shop
+       We have breeds of high quality.
+       We nurture them with care and so on.
+    </p>
+    <marquee style="color:rgb(168, 11, 168);font-size: larger;" direction="right">New breeds are available</marquee>
+    <!-- parallax -->
+    <div class="parallax"></div>
+    <!-- animation -->
+    <div class="animation_show">
+
+    </div>
+    <div id="get">
+        this is an div element
+        <h1>Javascript</h1>
+    </div>
+    <!-- this is ol part -->
+    <div style="color:blue;font-size: large;">
+    We have dog breeds like
+    <ol>
+        <li>Dolmatain <a href="https://en.wikipedia.org/wiki/Dalmatian_(dog)">more details</a> </li>
+        <img src="images/Dalmatian.jpg" alt="Dolmatain pic" width="100" height="100" />
+        <li>Golden retriever <a href="https://en.wikipedia.org/wiki/Golden_Retriever">more details</a></li>
+        <img src="images/goldenretriever.jpg" alt="goldenretriever pic" height="100" width="100" />
+        <li>Doberman <a href="https://en.wikipedia.org/wiki/Dobermann">more details</a></li>
+        <img src="images/doberman.jpg" alt="doberman picture" width="100" height="100" />
+        <li>pug <a href="https://en.wikipedia.org/wiki/Pug">more details</a></li>
+        <img src="images/pug.jpg" alt="pug picture" width="100" height="100" />
+    </ol>
+    </div>
+    <!-- this is table part for dogs -->
+<div class="dog_table" onmouseover="DogLook()">
+
+ <table border="1">
+     <tr>
+         <th>Name</th>
+         <th>Speciality</th>
+         <th>image</th>
+         <th>link</th>
+     </tr>
+     <tr>
+         <td>Dolmatain</td>
+         <td>black dots</td>
+         <td><img src="images/Dalmatian.jpg" alt="Dolmatain pic" width="50" height="50" /> </td>
+         <td><a href="https://en.wikipedia.org/wiki/Dalmatian_(dog)">link</a></td>
+     </tr>
+     <tr>
+        <td>Golden retriever</td>
+        <td>cute dog</td>
+        <td><img src="images/goldenretriever.jpg" alt="goldenretriever pic" width="50" height="50" /> </td>
+        <td><a href="https://en.wikipedia.org/wiki/Golden_Retriever">link</a></td>
+    </tr>
+ </table>
+</div>
+<!-- this is table part for cats -->
+<div id="big_font" >
+    We have cat breeds like
+</div>
+<div class="cat_table" onmouseover="CatLook()">
+    <table border="1" >
+        <tr>
+            <th>Name</th>
+            <th>Speciality</th>
+            <th>image</th>
+            <th>link</th>
+        </tr>
+        <tr>
+            <td>cat 1</td>
+            <td>nice fur</td>
+            <td><img src="images/cat1.jpg" alt="cat1 pic" width="50" height="50" /> </td>
+            <td><a href="#">link</a></td>
+        </tr>
+        <tr>
+           <td>cat 2</td>
+           <td>cute</td>
+           <td><img src="images/cat2.jpg" alt="cat2 pic" width="50" height="50" /> </td>
+           <td><a href="#">link</a></td>
+       </tr>
+    </table>
+   </div>
+<!-- this is mailto part -->
+<div >
+<div  style="cursor: crosshair;"><p>If interested to buy</div> <div style="cursor:zoom-in;"> reach out to us at <a href="mailto:eshwargrandhe@gmail.com">eshwargrandhe@gmail.com</a>.
+</p>
+</div>
+<div>
+    <form action="#">
+        Breed name: <input type="text" name="breed_name"  /> 
+        <select name="interest" >
+            <option value="">Immediately</option>
+            <option value="">within a month</option>
+            <option value="">within a week</option>
+            <option value="">nothing urgent</option>
+        </select> <br/>
+        Describe : 
+        <textarea name="describe"  cols="50" rows="5">Enter the description</textarea> <br/>
+        <input type="file" name="fileupload" accept="image/*" />
+        <input type="button" value="Submit" onclick="Looping()" />
+    </form>
+</div>
+</div>
+<script src="js/main.js"></script>
+
+</body>
+</html>

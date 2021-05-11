@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <style>
+        .divred{ background-color: red;}
+        #divison{ width: 150px; height: 150px; background-color: blue; border: 2px solid black;}
+    </style>
+</head>
+<body>
+    <div id="my-div">click me to see the dialogue box.</div>
+    <div class="my-div">click me to see the dialogue box  again.</div>
+    <div id="ol">
+    <ol>
+        <li>One</li>
+        <li>two</li>
+        <li>three</li>
+    </ol>
+</div>
+    <ul>
+        <li id="one">four</li>
+        <li id="two">six</li>
+        <li id="three">five</li>
+    </ul>
+    <div id="change">
+        click here to change the image.
+    </div><br />
+    <div id="divred">will change into red soon.</div><br />
+    <div id="gethtml">click here to get the html code of ol.</div> <br />
+    <div id="divison">Some text has to be written here</div> <br />
+    <img src="images/cat2.jpg" alt="goldenretriever" id="my-img" width="100"/>
+    <!-- All script tags come here -->
+    <!-- <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        // $(document).ready(function(){
+        //     alert('Welcome to Jquery class today');
+
+        // });
+        $("#my-div").click(function(){
+            alert("clicked on the div element");
+        });
+        $(".my-div").click(function(){
+            alert("clicked on the other div element");
+        });
+        $('ol').click(function(){
+            $('#my-img').attr("width",300);
+        });
+        $('ul').click(function(){
+            $('#my-img').attr("width",50);
+        });
+        // $('li:first').click(function(){alert("You clicked the first li tag");});
+        $('#one').click(function(){
+            $('#my-img').attr("src","images/cat1.jpg");
+        });
+        $('#two').click(function(){
+            $('#my-img').attr("src","images/doberman.jpg");
+        });
+        $('#three').click(function(){
+            $('#my-img').attr("src","images/pug.jpg");
+        });
+        $('#change').click(function(){
+            $('#my-img').attr("src","images/goldenretriever.jpg");
+            $('#divred').toggleClass('divred');
+        });
+        $('#gethtml').click(function(){alert($('#ol').text())});
+        $('#divison').click(function(){
+            $(this).after('<h1>Hello World!</h1>');
+        });
+    </script>
+</body>
+</html>

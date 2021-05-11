@@ -1,0 +1,67 @@
+var Car = /** @class */ (function () {
+    //constructor 
+    function Car(engine) {
+        this.engine = engine;
+    }
+    //function 
+    Car.prototype.disp = function () {
+        console.log("Engine is  :   " + this.engine);
+    };
+    return Car;
+}());
+//create an object 
+var obj = new Car("petrol");
+//access the field 
+console.log("Reading attribute value Engine as :  " + obj.engine);
+//access the function
+obj.disp();
+// interface inheritance
+// interface Person { 
+//    age:number 
+// } 
+// interface Musician extends Person { 
+//    instrument:string 
+// } 
+// var drummer = <Musician>{}; 
+// drummer.age = 27 
+// drummer.instrument = "Drums" 
+// console.log("Age:  "+drummer.age) 
+// console.log("Instrument:  "+drummer.instrument)
+// interface examples
+// interface RunOptions {​​​​​​​​ 
+// program:string; 
+// commandline:string[]|string|(()=>string); 
+// }​​​​​​​​ 
+//commandline as string 
+// var options:RunOptions = {​​​​​​​​program:"test1",commandline:"Hello"}​​​​​​​​; 
+// console.log(options.commandline)  
+//commandline as a string array 
+// options = {​​​​​​​​program:"test1",commandline:["Hello","World"]}​​​​​​​​; 
+// console.log(options.commandline[0]); 
+// console.log(options.commandline[1]);  
+//commandline as a function expression 
+// options = {​​​​​​​​program:"test1",commandline:()=>{​​​​​​​​return"**Hello World**";}​​​​​​​​}​​​​​​​​; 
+// var fn:any = options.commandline; 
+// console.log(fn());
+// interface IPerson { 
+//     firstName:string, 
+//     lastName:string, 
+//     sayHi: ()=>string 
+//  } 
+//  var customer:IPerson = { 
+//     firstName:"Tom",
+//     lastName:"Hanks", 
+//     sayHi: ():string =>{return "Hi there"} 
+//  } 
+//  console.log("Customer Object ") 
+//  console.log(customer.firstName) 
+//  console.log(customer.lastName) 
+//  console.log(customer.sayHi())  
+//  var employee:IPerson = { 
+//     firstName:"Jim",
+//     lastName:"Blakes", 
+//     sayHi: ():string =>{return "Hello!!!"} 
+//  } 
+//  console.log("Employee  Object ") 
+//  console.log(employee.firstName);
+//  console.log(employee.lastName);

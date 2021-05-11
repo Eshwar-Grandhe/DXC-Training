@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>The jQuery Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+
+
+
+
+</head>
+
+<body>
+    <div data-role = "page" id = "pageone" data-theme = "b">
+        <div data-role = "header">
+           <h1>My jquery form</h1>
+        </div>
+        <div data-role = "main" class = "ui-content">
+           <label for = "pet_type">Enter pet type:</label>
+             
+           <input type = "text" name = "pet_type" id = "pet_type" 
+              placeholder = "Enter pet type.." title="Please enter your choice of pet">    
+           <br /> <br />
+
+           <label for = "switch">Immediate Requirement</label>
+           
+           <select name = "switch" id = "urgency" data-role = "slider">
+              <option value = "Yes" selected>Yes</option>
+              <option value = "No" >No</option>
+           </select>
+           <label for="slider-0">Weight in grams:</label>
+           <input type="range" style="width: 55px;" name="slider" id="weight" value="1500" min="0" max="9000"  />   
+           <input type="button" name="Submit" value="Submit" id="btnSubmit"/>
+        
+        </div>
+        <div data-role = "footer">
+           <h1>My jquery</h1>
+        </div>
+
+     </div>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+     <script src="https://code.jquery.com/jquery-1.11.3.min.js">
+     </script>
+     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+     </script>
+     <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+
+
+            $('#btnSubmit').click(function(){
+                var pet_type = $('#pet_type').val();
+                var weight = $('#weight').val();
+                var urgency = $('#urgency').val();
+                alert(pet_type+" "+urgency+" "+weight);
+            });
+            $(document).tooltip();
+        });
+    </script>
+</body>
+
+</html>

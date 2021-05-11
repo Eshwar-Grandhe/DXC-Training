@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery ajax</title>
+    <style>
+        .status-success {
+            color: green;
+        }
+
+        .status-failure {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to ajax github page</h1>
+    <p>Enter a single github username below and click the button to display profile via JSON</p>
+    <input type="text" id="username" placeholder="Enter github username" autocomplete="off" />
+    <input type="button" value="fetch" id="btnfetch" /><br />
+    Status:<div id="status"></div><br />
+    <div id="hide">
+        Username:<div id="user_name"></div>
+        Webpage:<div id="user_webpage"></div>
+        Followers:<div id="user_followers"></div>
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $('#hide').hide();
+            $('#btnfetch').click(() => {
+                var username = $('#username').val();
+                $.ajax({
+                    url: "https://api.github.com/users/" + username,
+                    dataType: "json",
+                    success: (data) => {
+                        $('#user_name').html("<h2>" + data.login + "</h2>");
+                        $('#user_webpage').html("<h2>" + data.blog + "</h2>");
+                        $('#user_followers').html("<h2>" + data.followers + "</h2>");
+                        $('#status').html("<b>Success</b>");
+                        $('#status').removeClass('status-failure');
+                        $('#status').addClass('status-success');
+                        $('#hide').show();
+
+                    },
+                    error: (jqXhr, textStatus, err) => {
+                        $('#status').html("<b>Not found!</b>");
+                        $('#status').removeClass('status-failure');
+                        $('#status').addClass('status-failure');
+                        $('#hide').hide();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

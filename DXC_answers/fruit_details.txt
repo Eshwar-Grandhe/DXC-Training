@@ -1,0 +1,56 @@
+a)
+
+1.To create fruit table
+
+CREATE TABLE "FruitPrice" (
+	"fruit"	TEXT NOT NULL,
+	"price"	REAL NOT NULL,
+	"unit"	TEXT NOT NULL
+);
+
+CREATE TABLE "FruitComsumption" (
+	"date"	TEXT NOT NULL,
+	"fruit"	TEXT NOT NULL,
+	"quantity"	INTEGER NOT NULL
+);
+
+2.Insert into fruit table 
+
+INSERT INTO FruitPrice(fruit, price, unit)
+values
+("mango", 125, "kg"),
+("Banana", 45, "kg"),
+("guava", 85, "kg"),
+("Pineapple", 65, "kg");
+
+Insert into FruitComsumption (date,fruit,quantity)
+values
+("2021-apr-01", "mango", 5),
+("2021-apr-02", "mango", 6),
+("2021-apr-03", "mango", 3),
+("2021-apr-04"," mango", 2),
+("2021-apr-05", "mango", 5),
+("2021-apr-01", "guava", 15),
+("2021-apr-02", "guava", 12),
+("2021-apr-03", "guava", 6),
+("2021-apr-04", "guava", 7),
+("2021-apr-05", "guava", 8),
+("2021-apr-01", "Banana", 1),
+("2021-apr-02", "Banana", 2),
+("2021-apr-03", "Banana", 1),
+("2021-apr-04", "Banana", 2),
+("2021-apr-05", "Banana", 2);
+
+CREATE VIEW day_wise_amount as
+SELECT date, sum(quantity*price) as total_amount FROM
+FruitComsumption, FruitPrice WHERE FruitPrice.fruit = FruitComsumption.fruit GROUP
+by date;
+
+CREATE VIEW day_wise_quantity as
+SELECT date,sum(quantity) as total_weight from FruitComsumption
+GROUP by date
+
+CREATE VIEW total_fruits as
+SELECT fruit,sum(quantity) as total_comsumption FROM
+FruitComsumption GROUP by fruit;
+

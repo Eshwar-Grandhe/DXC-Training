@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery animation</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .mydiv {
+            margin: 10px;
+            padding: 12px;
+            border: 2px solid black;
+            width: 50px;
+            height: 50px;
+        }
+
+        .my_color {
+            background-color: blueviolet;
+        }
+
+        #draggable {
+            font-size: x-large;
+        }
+
+        .ui-progressbar {
+            position: relative;
+        }
+
+        .progress-label {
+            position: absolute;
+            left: 50%;
+            top: 4px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="progressbar"><div class="progress-label">Loading...</div></div><br /> -->
+    <p>Date: <input type="text" id="datepicker"></p>
+    <ul id="draggable">
+        <li>one</li>
+        <li>two</li>
+        <li id="three">three</li>
+    </ul>
+
+    <div class="mydiv">
+        This is a Square.
+    </div>
+    <input type="button" value="show" id="show" /><br />
+    <input type="button" value="hide" id="hide" /><br />
+    <div class="bind" style="background-color: red;">red </div><br />
+    <div class="bind" style="background-color: blue;">blue </div><br />
+    <div class="bind" style="background-color: purple;">purple </div><br />
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker({
+                showButtonPanel: true
+            });
+        });
+        $(function () {
+            var progressbar = $("#progressbar"),
+                progressLabel = $(".progress-label");
+
+            progressbar.progressbar({
+                value: false,
+                change: function () {
+                    progressLabel.text(progressbar.progressbar("value") + "%");
+                },
+                complete: function () {
+                    progressLabel.text("Complete!");
+                }
+            });
+
+            function progress() {
+                var val = progressbar.progressbar("value") || 0;
+
+                progressbar.progressbar("value", val + 2);
+
+                if (val < 99) {
+                    setTimeout(progress, 80);
+                }
+            }
+
+            setTimeout(progress, 2000);
+        });
+        $('#hide').click(function () {
+            // $('.mydiv').show(3000);
+            $('.mydiv').slideUp(2000).hide(3000);
+            // $('.mydiv').hide(3000);
+
+        });
+        $('#show').click(function () {
+            $('.mydiv').slideDown(2000).show(3000);
+        });
+        // $('#draggable').draggable(); //to drag it anywhere
+        // $('#draggable').sortable();
+        $('#three').click(function () {
+            $(this).siblings().toggleClass("my_color");
+        });
+        $('#three').click(function () {
+            $(this).parent().toggleClass("my_color");
+        });
+        $('.bind').bind('click',function(event){
+            console.log(event.target.innerHTML);
+            alert("clicked an event");
+        })
+    </script>
+</body>
+
+</html>
